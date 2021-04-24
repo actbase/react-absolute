@@ -2,11 +2,21 @@
 
 - [react-absolute](#react-absolute)
 - [What is react-absolute](#what-is-react-absolute)
-- [install](#install)
-- [Getting Started / Useage](#getting-started--useage)
-  - [preconfig for using.](#preconfig-for-using)
-  - [useage](#useage)
+- [Install](#install)
+  - [Getting Started / Usage](#getting-started--usage)
+    - [Preconfig for using.](#preconfig-for-using)
 - [Interfaces & methods](#interfaces--methods)
+- [Contact us](#contact-us)
+
+![platforms](https://img.shields.io/badge/platforms-Android%20%7C%20iOS%20%7C%20web-brightgreen.svg?style=flat-square&colorB=191A17)
+[![npm](https://img.shields.io/npm/v/@actbase/react-absolute.svg?style=flat-square)](https://www.npmjs.com/package/@actbase/react-absolute)
+[![npm](https://img.shields.io/npm/dm/@actbase/react-absolute.svg?style=flat-square&colorB=007ec6)](https://www.npmjs.com/package/@actbase/react-absolute)
+
+
+[![github issues](https://img.shields.io/github/issues/actbase/react-absolute.svg?style=flat-square)](https://github.com/actbase/react-absolute/issues)
+[![github closed issues](https://img.shields.io/github/issues-closed/actbase/react-absolute.svg?style=flat-square&colorB=44cc11)](https://github.com/actbase/react-absolute/issues?q=is%3Aissue+is%3Aclosed)
+[![Issue Stats](https://img.shields.io/issuestats/i/github/actbase/react-absolute.svg?style=flat-square&colorB=44cc11)](https://github.com/actbase/react-absolute/issues)
+
 
 # What is react-absolute
 
@@ -15,21 +25,21 @@ In JSX Struct we don't need to learn new feature.
 Developers sometimes should make some dependent component without main render block.
 We know some how appearencing custom Component on any time and any point. If you want using react js more powerfull should consider using our "react-absolute" solution. 
 
-# install
+# Install
 
-- using npm
+- Using npm
 ``` 
 npm install @actbase/react-absolute;
 ```
 
-- u sing yarn
+- Using yarn
 ```
 yarn add @actbase/react-absolute;
 ```
 
-# Getting Started / Useage
+## Getting Started / Usage
 
-## preconfig for using.
+### Preconfig for using.
 - On very first entry point. index.js or app.js 
 - Make sure wrapping with Absolute
 
@@ -38,37 +48,35 @@ import Absolute from '@actbase/react-absolute';
 
 const App = ()=>{
   return (
-    <Absolute>
+    <Absolute.Provider style={{flex:1}}>
       {/* rendered components before. */}
-    </Absolute>
+    </Absolute.Provider>
   )
 }
 export App;
-```
+```∏
+### Usage 
 
-## useage 
-
-- using with render block
+- Using with render block
 ```
 import Absolute from '@actbase/react-absolute';
 
 const SomeComponent = ()=>{
   return (
-    <Absolute.Children style={{}}>
+    <Absolute style={{}} isVisible>
 
-    </Absolute.Children>
+    </Absolute>
   )
 }
 ```
 
-- using with event function.
+- Using with event function.
 
 ```
 <SomeEventProvider someEventHandler={()=>{
   // adding absolute on your purpose.
   const handler = Absolute.add(
-    <ToBeGlobalComponentYouHave 
-    />
+    <ToBeAboluteComponentYouHave />
   );
 
   // remove.
@@ -78,8 +86,13 @@ const SomeComponent = ()=>{
 
 # Interfaces & methods
 
-- Methods.
+- props of Absolute.Provider
+- - Methods 
+  - add
+  - remove
 
-- add
+# Contact us
 
-blahblah
+If you consider make service with react. 
+
+Call us
