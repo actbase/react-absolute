@@ -62,10 +62,11 @@ export App;
 ```
 import Absolute from '@actbase/react-absolute';
 
-const SomeComponent = ()=>{
+const SomeComponent = ({})=>{
+  if( condition ) return null;  
   return (
-    <Absolute style={{}} isVisible>
-
+    <Absolute style={{}}>
+    
     </Absolute>
   )
 }
@@ -90,7 +91,6 @@ const SomeComponent = ()=>{
 - props of Absolute.Provider
   - Methods 
     - add
-    - remove
 
 # Contact us
 
