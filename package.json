@@ -1,0 +1,23 @@
+{
+  "name": "@actbase/react-absolute",
+  "version": "0.0.1",
+  "description": "React or React native Absolute provider",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/actbase/react-absolute.git"
+  },
+  "keywords": [
+    "react-absolute",
+    "react-native-absolute"
+  ],
+  "author": "Actbase",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/actbase/react-absolute/issues"
+  },
+  "homepage": "https://github.com/actbase/react-absolute#readme"
+}
