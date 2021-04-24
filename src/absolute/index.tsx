@@ -3,7 +3,7 @@ import { AbsoluteContext } from './context';
 import { AbsoluteProps, Props } from '../utils/elements';
 import AbsoluteProvider from './provider';
 
-interface AbsoluteElement extends React.FC<AbsoluteProps> {
+export interface AbsoluteElement extends React.FC<AbsoluteProps> {
   Provider: React.FC<Props>;
 }
 
