@@ -5,6 +5,7 @@
 - [Install](#install)
   - [Getting Started / Usage](#getting-started--usage)
     - [Preconfig for using.](#preconfig-for-using)
+    - [Usage](#usage)
 - [Interfaces & methods](#interfaces--methods)
 - [Contact us](#contact-us)
 
@@ -54,17 +55,18 @@ const App = ()=>{
   )
 }
 export App;
-```∏
+```
 ### Usage 
 
 - Using with render block
 ```
 import Absolute from '@actbase/react-absolute';
 
-const SomeComponent = ()=>{
+const SomeComponent = ({})=>{
+  if( condition ) return null;  
   return (
-    <Absolute style={{}} isVisible>
-
+    <Absolute style={{}}>
+    
     </Absolute>
   )
 }
@@ -87,9 +89,8 @@ const SomeComponent = ()=>{
 # Interfaces & methods
 
 - props of Absolute.Provider
-- - Methods 
-  - add
-  - remove
+  - Methods 
+    - add
 
 # Contact us
 
