@@ -1,6 +1,6 @@
 {
   "name": "@actbase/react-absolute",
-  "version": "0.8.0",
+  "version": "0.8.2",
   "description": "React or React native Absolute provider",
   "main": "lib/index.js",
   "module": "lib/index.js",
