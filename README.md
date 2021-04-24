@@ -5,6 +5,7 @@
 - [Install](#install)
   - [Getting Started / Usage](#getting-started--usage)
     - [Preconfig for using.](#preconfig-for-using)
+    - [Usage](#usage)
 - [Interfaces & methods](#interfaces--methods)
 - [Contact us](#contact-us)
 
@@ -54,7 +55,7 @@ const App = ()=>{
   )
 }
 export App;
-```∏
+```
 ### Usage 
 
 - Using with render block
@@ -87,9 +88,9 @@ const SomeComponent = ()=>{
 # Interfaces & methods
 
 - props of Absolute.Provider
-- - Methods 
-  - add
-  - remove
+  - Methods 
+    - add
+    - remove
 
 # Contact us
 
