@@ -1,10 +1,7 @@
 import * as React from 'react';
-import { AbsoluteProps } from '../utils/elements';
-
-export type PropData = React.PropsWithChildren<AbsoluteProps> | undefined;
 
 export interface ContextArgs {
-  attach?: (id: string, props: PropData) => string;
+  attach?: (id: string, elem: React.Component | undefined) => string;
 }
 
 export const AbsoluteContext: React.Context<ContextArgs> = React.createContext<ContextArgs>({});

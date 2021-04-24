@@ -1,6 +1,6 @@
 {
   "name": "@actbase/react-absolute",
-  "version": "0.0.1",
+  "version": "0.8.0",
   "description": "React or React native Absolute provider",
   "main": "lib/index.js",
   "module": "lib/index.js",
@@ -12,7 +12,8 @@
   "scripts": {
     "build:src": "rm -rf ./lib && tsc -p src/tsconfig.json && babel lib --out-dir lib",
     "build": "npm run build:src",
-    "prepublish": "npm run build"
+    "prepublish": "npm run build",
+    "localinstall": "npm run build && cp -r ./lib ./example/rn/node_modules/@actbase/react-absolute/"
   },
   "license": "ISC",
   "keywords": [

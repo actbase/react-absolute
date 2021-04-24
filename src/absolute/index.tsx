@@ -1,18 +1,18 @@
 import React, { useContext, useEffect, useRef } from 'react';
 import { AbsoluteContext } from './context';
-import { AbsoluteProps, Props } from '../utils/elements';
-import AbsoluteProvider from './provider';
+import AbsoluteProvider, { attachMethod } from './provider';
 
-export interface AbsoluteElement extends React.FC<AbsoluteProps> {
-  Provider: React.FC<Props>;
+export interface AbsoluteElement extends React.FC<any> {
+  Provider: React.FC<any>;
+  add: (elem: React.Component) => () => void;
 }
 
 const Absolute: AbsoluteElement = props => {
   const serial = useRef({ ix: '' });
   const { attach } = useContext(AbsoluteContext);
   useEffect(() => {
-    if (attach && props.isVisible) {
-      serial.current.ix = attach(serial.current.ix, props);
+    if (attach) {
+      serial.current.ix = attach(serial.current.ix, props.children);
       return () => {
         attach(serial.current.ix, undefined);
       };
@@ -23,10 +23,12 @@ const Absolute: AbsoluteElement = props => {
   return null;
 };
 
-Absolute.defaultProps = {
-  isVisible: true,
-};
+Absolute.defaultProps = {};
 
 Absolute.Provider = AbsoluteProvider;
+Absolute.add = (elem: React.Component) => {
+  const ix = attachMethod(undefined, elem);
+  return () => attachMethod(ix, undefined);
+};
 
 export default Absolute;
