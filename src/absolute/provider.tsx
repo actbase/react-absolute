@@ -1,15 +1,20 @@
 import * as React from 'react';
-import { AbsoluteContext } from './context';
-import { AbsoluteProps, Container, Props, ViewItem } from '../utils/elements';
+import { AbsoluteContext, PropData } from './context';
+import { Container, Props, ViewItem } from '../utils/elements';
 
 const AbsoluteProvider: React.FC<Props> = props => {
-  const [screens, setScreens] = React.useState<{ [key: string]: React.PropsWithChildren<AbsoluteProps> }>({});
-  const attach = React.useCallback((target: string, props: React.PropsWithChildren<AbsoluteProps> | undefined) => {
-    if (!props) return;
+  const config = React.useRef<{ ix: number }>({ ix: 0 });
+  const [screens, setScreens] = React.useState<{ [key: string]: PropData }>({});
+  const attach = React.useCallback((_ix, props: PropData) => {
+    const ix = _ix ? _ix : config.current.ix + 1;
     setScreens(screens => ({
       ...screens,
-      [target]: props,
+      [String(ix)]: props,
     }));
+    if (!_ix) {
+      config.current.ix = ix;
+    }
+    return String(ix);
   }, []);
 
   return (

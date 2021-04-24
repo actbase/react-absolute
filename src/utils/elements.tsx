@@ -4,7 +4,7 @@ export interface Props {
   style?: React.CSSProperties;
 }
 
-export interface AbsoluteProps {
+export interface AbsoluteProps extends React.HTMLProps<any> {
   isVisible: boolean;
 }
 
