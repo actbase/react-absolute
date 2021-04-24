@@ -1,15 +1,20 @@
-import React, { PropsWithChildren, useCallback, useState } from 'react';
-import { AbsoluteContext } from './context';
-import { AbsoluteProps, Container, Props, ViewItem } from '../utils/elements';
+import * as React from 'react';
+import { AbsoluteContext, PropData } from './context';
+import { Container, Props, ViewItem } from '../utils/elements';
 
 const AbsoluteProvider: React.FC<Props> = props => {
-  const [screens, setScreens] = useState<{ [key: string]: PropsWithChildren<AbsoluteProps> }>({});
-  const attach = useCallback((target: string, props: PropsWithChildren<AbsoluteProps> | undefined) => {
-    if (!props) return;
+  const config = React.useRef<{ ix: number }>({ ix: 0 });
+  const [screens, setScreens] = React.useState<{ [key: string]: PropData }>({});
+  const attach = React.useCallback((_ix, props: PropData) => {
+    const ix = _ix ? _ix : config.current.ix + 1;
     setScreens(screens => ({
       ...screens,
-      [target]: props,
+      [String(ix)]: props,
     }));
+    if (!_ix) {
+      config.current.ix = ix;
+    }
+    return String(ix);
   }, []);
 
   return (
@@ -17,10 +22,9 @@ const AbsoluteProvider: React.FC<Props> = props => {
       <AbsoluteContext.Provider value={{ attach }}>{props.children}</AbsoluteContext.Provider>
       {Object.keys(screens)
         .filter(v => !!screens[v])
-        .map((key: string) => {
-          const props = screens[key];
-          return <ViewItem key={`ab${key}`} {...props} />;
-        })}
+        .map((key: string) => (
+          <ViewItem key={`ab${key}`} {...screens[key]} />
+        ))}
     </Container>
   );
 };

@@ -1,6 +1,5 @@
 import React, { useContext, useEffect, useRef } from 'react';
 import { AbsoluteContext } from './context';
-import { uniqueId } from 'lodash';
 import { AbsoluteProps, Props } from '../utils/elements';
 import AbsoluteProvider from './provider';
 
@@ -9,17 +8,18 @@ interface AbsoluteElement extends React.FC<AbsoluteProps> {
 }
 
 const Absolute: AbsoluteElement = props => {
-  const serial = useRef(uniqueId()).current;
+  const serial = useRef({ ix: '' });
   const { attach } = useContext(AbsoluteContext);
-  const { children, isVisible } = props;
   useEffect(() => {
-    if (attach && isVisible) {
-      attach(serial, { children, isVisible });
-      return () => attach(serial, undefined);
+    if (attach && props.isVisible) {
+      serial.current.ix = attach(serial.current.ix, props);
+      return () => {
+        attach(serial.current.ix, undefined);
+      };
     } else {
       return () => null;
     }
-  }, [serial, attach, children, isVisible]);
+  }, [attach, props]);
   return null;
 };
 

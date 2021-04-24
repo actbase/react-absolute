@@ -1,11 +1,11 @@
-import { StyleProp, View, ViewStyle, StyleSheet } from 'react-native';
+import { StyleProp, View, ViewStyle, StyleSheet, ViewProps } from 'react-native';
 import * as React from 'react';
 
 export interface Props {
   style?: StyleProp<ViewStyle>;
 }
 
-export interface AbsoluteProps {
+export interface AbsoluteProps extends ViewProps {
   isVisible: boolean;
 }
 
